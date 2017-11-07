@@ -13,7 +13,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/center.png "Center driving"
+[image1]: examples/center.png "Center driving"
 [image2]: ./examples/recovering_1.png "Recovery Image"
 [image3]: ./examples/recovering_2.png "Recovery Image"
 [image4]: ./examples/before_flip.png "Before flipping"
