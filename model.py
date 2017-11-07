@@ -33,7 +33,7 @@ for row in lines:
     steering_angles.append(steering_left)
     steering_angles.append(steering_right)
     
-    
+# augment the dataset by flipping images and angles    
 aug_images, aug_measurements = [], []
 for image, measurement in zip(car_images, steering_angles):
     aug_images.append(image)
@@ -50,16 +50,18 @@ from keras.layers.convolutional import Convolution2D, Cropping2D, MaxPooling2D
 from keras.layers.normalization import BatchNormalization
 
 model  = Sequential()
+# normalise the image
 model.add(Lambda(lambda x: x/255.0 - 0.5, input_shape=(160,320,3)))
+# crop the image to remove irrelevant part
 model.add(Cropping2D(cropping=((70,25), (0,0) )))
-
+# conv layers that does feature extraction
 model.add(Convolution2D(24,5,5, activation='relu', subsample=(2, 2)))
 # model.add(MaxPooling2D())
 model.add(Convolution2D(36,5,5, activation='relu', subsample=(2, 2)))
 model.add(Convolution2D(48,5,5, activation='relu', subsample=(2, 2)))
 model.add(Convolution2D(64,3,3, activation='relu'))
 model.add(Convolution2D(64,3,3, activation='relu'))
-
+# dense layers that predict the angle
 model.add(Flatten())
 model.add(Dense(100))
 model.add(Dense(50))
