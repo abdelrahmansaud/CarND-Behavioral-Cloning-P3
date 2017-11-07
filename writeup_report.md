@@ -10,16 +10,6 @@ The goals / steps of this project are the following:
 * Test that the model successfully drives around track one without leaving the road
 * Summarize the results with a written report
 
-
-[//]: # (Image References)
-
-[image1]: examples/center.png "Center driving"
-[image2]: ./examples/recovering_1.png "Recovery Image"
-[image3]: ./examples/recovering_2.png "Recovery Image"
-[image4]: ./examples/before_flip.png "Before flipping"
-[image5]: ./examples/after_flip.png "After flipping"
-
-
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
@@ -94,12 +84,12 @@ The final model architecture (model.py lines 52-69) consisted of a convolution n
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image1]
+![image1](examples/center.jpg)
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to steer back to the center of the road. These images show what a recovery looks like starting from side of the track :
 
-![alt text][image2]
-![alt text][image3]
+![image2](examples/recovering_1.jpg)
+![image3](examples/recovering_2.jpg)
 
 I also used images from side cameras as points for non-centered driving, and by adjusting the steering angle it provided another example for the model on getting back to center
 
@@ -107,8 +97,8 @@ Then I recorder another two laps driving in opposite direction, because the trac
 
 To augment the data sat, I also flipped images and angles thinking that this would further combat that bias in direction of turns the track has. For example, here is an image that has then been flipped:
 
-![alt text][image4]
-![alt text][image5]
+![image4](examples/before_flip.jpg)
+![image5](examples/after_flip.jpg)
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
